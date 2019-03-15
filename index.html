@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tempo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+  <div id="accordion" class="main _main">
+
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link primeiro" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            <div class="d-flex">
+              <div class="p-2"><i class="glyphicon glyphicon-map-marker"></i></div>
+              <div class="p-2 _city_name">--</div>
+              <div class="ml-auto p-2 _date">--</div>
+            </div>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row">
+            <div class="col text-center">
+              <div class="_dia_semana_hoje">--</div>
+              <div class="_astronomia_hoje">--</div>
+              <div class="_umidade_hoje">--</div>
+              <div class="_min_max_hoje">--</div>
+            </div>
+            <div class="col text-center">
+              <img src="amcharts_weather_icons_1.0.0/animated/weather_sunset.svg" width="100" class="_img_hoje">
+              <div class="_descricao_hoje">--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="_outros">
+
+      <div class="card _template _card_dia">
+        <div class="card-header" id="heading_">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_" aria-expanded="false"
+              aria-controls="collapse_">
+              <div class="containerFlex">
+                  <div class="child semana">--</div>
+                  <div class="child">
+                    <img src="amcharts_weather_icons_1.0.0/animated/weather_sunset.svg" alt="" class="_img">
+                  </div>
+                  <div class="child temperatura">20º</div>
+                </div>
+            </button>
+          </h5>
+        </div>
+        <div id="collapse_" class="collapse" aria-labelledby="heading_" data-parent="#accordion">
+          <div class="card-body">
+            <div class="container">
+              conteudo
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/getImgName.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
