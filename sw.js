@@ -7,7 +7,7 @@ if ('serviceWorker' in navigator) {
 }
 
 var CACHE_NAME = 'pwa-weather-simple-v0'
-var urlsToCache = [
+var filesToCache = [
   `${HOST}/estilo.css`,
   `${HOST}/js/getImgName.js`,
   `${HOST}/js/weather.js`,
