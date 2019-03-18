@@ -72,4 +72,3 @@ if (!lastLocation || lastCheck < new Date().getTime() - (1000*60*30)) { // 30 mi
   }
 }
 refreshUi(JSON.parse(localStorage.getItem('wheater-data'))[lastLocation])
-
