@@ -1,11 +1,5 @@
 var HOST = 'https://andersonprante.github.io/pwa-weather-simple'
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register(`${HOST}/sw.js`)
-    .then(function () { console.log('Service Worker Registered'); });
-}
-
 var cacheName = 'pwa-weather-simple-v0'
 var filesToCache = [
   `${HOST}/estilo.css`,

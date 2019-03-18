@@ -1,3 +1,10 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('sw.js')
+    .then(function () { console.log('Service Worker Registered'); });
+}
+
+
 const _cityName = document.querySelector('._city_name')
 const _date = document.querySelector('._date')
 const _dia_semana_hoje = document.querySelector('._dia_semana_hoje')
