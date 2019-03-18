@@ -6,7 +6,7 @@ if ('serviceWorker' in navigator) {
     .then(function () { console.log('Service Worker Registered'); });
 }
 
-var CACHE_NAME = 'pwa-weather-simple-v0'
+var cacheName = 'pwa-weather-simple-v0'
 var filesToCache = [
   `${HOST}/estilo.css`,
   `${HOST}/js/getImgName.js`,
