@@ -2,7 +2,7 @@ var HOST = 'https://andersonprante.github.io/pwa-weather-simple/'
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register(`${HOST}/service-worker.js`)
+    .register(`${HOST}/sw.js`)
     .then(function () { console.log('Service Worker Registered'); });
 }
 
