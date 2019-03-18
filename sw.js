@@ -10,12 +10,13 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-var CACHE_NAME = 'pwa-weather-simple-v0';
+var CACHE_NAME = 'pwa-weather-simple-v0'
+var URL_BASE = location.href
 var urlsToCache = [
-  '/estilo.css',
-  '/js/getImgName.js',
-  '/js/weather.js',
-  '/js/app.js'
+  `${URL_BASE}/estilo.css`,
+  `${URL_BASE}/js/getImgName.js`,
+  `${URL_BASE}/js/weather.js`,
+  `${URL_BASE}/js/app.js`
 ];
 
 self.addEventListener('install', (event) => {
@@ -24,7 +25,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
     .then((cache) => {
       console.log('opened cache')
-      return cache.addAll(location.href + urlsToCache)
+      return cache.addAll(urlsToCache)
     })
   )
 })
