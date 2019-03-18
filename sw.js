@@ -11,6 +11,7 @@ if ('serviceWorker' in navigator) {
 }
 
 var CACHE_NAME = 'pwa-weather-simple-v0';
+var URL_BASE = 'https://andersonprante.github.io/pwa-weather-simple/'
 var urlsToCache = [
   '/estilo.css',
   '/js/getImgName.js',
@@ -24,7 +25,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
     .then((cache) => {
       console.log('opened cache')
-      return cache.addAll(urlsToCache)
+      return cache.addAll(`${URL_BASE}/${urlsToCache}`)
     })
   )
 })
