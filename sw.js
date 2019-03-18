@@ -1,4 +1,4 @@
-var HOST = 'https://andersonprante.github.io/pwa-weather-simple/'
+var HOST = 'https://andersonprante.github.io/pwa-weather-simple'
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
