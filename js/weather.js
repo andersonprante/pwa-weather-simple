@@ -1,7 +1,5 @@
 const getWheater = (args) => {
 
-  var cidade = args.location || "panambi,br"
-
   console.log('buscando dados da internet')
   var url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss';
   var method = 'GET';
@@ -10,19 +8,11 @@ const getWheater = (args) => {
   var consumer_secret = '18c9985078665aed3bf6409174eda58c131cbe8f';
   var concat = '&';
   var query = {
-    'format': 'json',
-    'u': 'c'
+    format: 'json',
+    u: 'c',
+    lat: args.lat,
+    lon: args.lon
   };
-
-  if(args.lat !== undefined || args.lon !== undefined) {
-    query.lat = args.lat
-    query.lon = args.lon
-  } else {
-    console.log('pela cidade')
-    query.location = cidade
-  }
-
-  console.log(query)
 
   var oauth = {
     'oauth_consumer_key': consumer_key,
@@ -62,8 +52,9 @@ const getWheater = (args) => {
       let _ls = JSON.parse(localStorage.getItem('wheater-data')) || {}
       _ls[data.location.woeid] = data
       localStorage.setItem('wheater-data', JSON.stringify(_ls))
-      localStorage.setItem('wheater-data-current', data.location.woeid)
-      localStorage.setItem('wheater-data-last-check', new Date().getTime())
+      localStorage.setItem('last-woeid', data.location.woeid)
+      localStorage.setItem('last-check', new Date().getTime())
+      refreshUi(_ls[data.location.woeid])
     }
   })
 }

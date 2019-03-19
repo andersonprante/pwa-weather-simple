@@ -4,6 +4,10 @@ if ('serviceWorker' in navigator) {
     .then(function () { console.log('Service Worker Registered'); });
 }
 
+const _default = {"default":{"location":{"woeid":430126,"city":"Demo","region":" BR","country":"Brazil","lat":-28.205879,"long":-53.484081,"timezone_id":"America/Sao_Paulo"},"current_observation":{"wind":{"chill":18,"direction":0,"speed":5},"atmosphere":{"humidity":95,"visibility":8.7,"pressure":959,"rising":0},"astronomy":{"sunrise":"6:36 am","sunset":"6:48 pm"},"condition":{"text":"Mostly Clear","code":33,"temperature":18},"pubDate":1552960800},"forecasts":[{"day":"Mon","date":1552878000,"low":18,"high":23,"text":"Thunderstorms","code":4},{"day":"Tue","date":1552964400,"low":17,"high":26,"text":"Partly Cloudy","code":30},{"day":"Wed","date":1553050800,"low":16,"high":21,"text":"Cloudy","code":26},{"day":"Thu","date":1553137200,"low":12,"high":20,"text":"Partly Cloudy","code":30},{"day":"Fri","date":1553223600,"low":12,"high":23,"text":"Partly Cloudy","code":30},{"day":"Sat","date":1553310000,"low":16,"high":23,"text":"Scattered Thunderstorms","code":47},{"day":"Sun","date":1553396400,"low":15,"high":25,"text":"Scattered Thunderstorms","code":47},{"day":"Mon","date":1553482800,"low":15,"high":26,"text":"Sunny","code":32},{"day":"Tue","date":1553569200,"low":16,"high":27,"text":"Mostly Sunny","code":34},{"day":"Wed","date":1553655600,"low":18,"high":25,"text":"Scattered Thunderstorms","code":47}]}}
+if(localStorage.getItem('wheater-data') === null) {
+  localStorage.setItem('wheater-data', JSON.stringify(_default))
+}
 
 const _cityName = document.querySelector('._city_name')
 const _date = document.querySelector('._date')
@@ -57,11 +61,10 @@ const refreshUi = (data) => {
     card.querySelector('#collapse_').id = `collapse_${idx}`
     _outros.appendChild(card)
   })
-
 }
 
-const lastLocation = localStorage.getItem('wheater-data-current') || null
-const lastCheck = parseInt(localStorage.getItem('wheater-data-last-check')) || null
+let lastLocation = localStorage.getItem('last-woeid') || "default"
+let lastCheck = parseInt(localStorage.getItem('last-check')) || null
 
 if (!lastLocation || lastCheck < new Date().getTime() - (1000*60*30)) { // 30 minutos atrás
   if ("geolocation" in navigator) {
@@ -73,9 +76,8 @@ if (!lastLocation || lastCheck < new Date().getTime() - (1000*60*30)) { // 30 mi
       refreshUi(JSON.parse(localStorage.getItem('wheater-data'))[lastLocation])
     })
   } else {
-    console.log("I'm sorry, but geolocation services are not supported by your browser.")
-    getWheater()
-    refreshUi(JSON.parse(localStorage.getItem('wheater-data'))[lastLocation])
+    alert('Sistema só funciona com a localização ativada')
   }
+} else {
+  refreshUi(JSON.parse(localStorage.getItem('wheater-data'))[lastLocation])
 }
-refreshUi(JSON.parse(localStorage.getItem('wheater-data'))[lastLocation])

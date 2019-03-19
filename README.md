@@ -1,1 +1,0 @@
-# pwa-weather-simple
