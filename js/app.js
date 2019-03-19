@@ -30,6 +30,7 @@ const refreshUi = (data) => {
   _cityName.innerHTML = `${data.location.city}, ${data.location.region}`
   let d = new Date(data.current_observation.pubDate * 1000)
   let dia_semana = diaSemana[d.getDay()]
+  debugger
   str_d = d.toISOString().split('T')[0].split('-')
   _date.innerHTML = `${str_d[2]} de ${mes[parseInt(str_d[1]) - 1]} ${str_d[0]}`
   _dia_semana_hoje.innerHTML = dia_semana
